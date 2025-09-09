@@ -1,3 +1,5 @@
+// Advanced part 1
+
 interface DirectorInterface{
 	workFromHome(): string,
 	getCoffeeBreak(): string,
@@ -61,4 +63,23 @@ console.log((employee2 as Director).workDirectorTasks()); // "Getting to directo
 const employee3 = createEmployee("500"); // Director (car salary n'est pas un number)
 console.log(employee3.workFromHome());      // "Working from home"
 
+// 6. Creating functions specific to employees
 
+function isDirector(employee: Director | Teacher ): employee is Director {
+  return(employee as Director).workDirectorTasks !== undefined;
+}
+
+function executeWork(employee: Director | Teacher): string{
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
+//examples
+const employee4 = createEmployee(200); // Teacher
+console.log(executeWork(employee4)); // "Getting to work"
+
+const employee5 = createEmployee(1000); // Director
+console.log(executeWork(employee5)); // "Getting to director tasks"
