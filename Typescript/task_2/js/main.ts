@@ -83,3 +83,14 @@ console.log(executeWork(employee4)); // "Getting to work"
 
 const employee5 = createEmployee(1000); // Director
 console.log(executeWork(employee5)); // "Getting to director tasks"
+
+//7. String literal types
+
+type Subjects = "Maths" | "History";
+
+function teachClass(todayClass: Subjects): string {
+  return todayClass === "Maths" ? "Teaching Math" : "Teaching History"
+}
+
+console.log(teachClass("Maths"));
+console.log(teachClass("History"));
