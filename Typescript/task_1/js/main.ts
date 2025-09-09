@@ -16,6 +16,7 @@ const teacher : Teacher = {
   location: "London",
   contract: false,
 };
+console.log(teacher);
 
 // 2 Extending the Teacher class to Director
 
@@ -23,10 +24,22 @@ interface Directors extends Teacher{
   numberOfReports: number;
 }
 
+const director: Directors = {
+	firstName: "Alice",
+	lastName: "Smith",
+	fullTimeEmployee: true,
+	location: "Paris",
+	numberOfReports: 5,
+};
+
+console.log(director)
+
 // 3 Printing teachers
 function printTeacher(firstName: string, lastName: string): string {
-  return `${firstName.charAt(0)}. ${lastName};`
+  return `${firstName.charAt(0)}. ${lastName}`;
 }
+
+console.log(printTeacher("John", "Doe"));
 
 // 4 Wrinting a class
 
@@ -69,4 +82,4 @@ const Student: StudentConstrutor = StudentClass;
 const student: StudentClassInterface = new Student("John", "Doe");
 
 console.log(student.displayName());
-console.log(student.workOnHomework);
+console.log(student.workOnHomework());
